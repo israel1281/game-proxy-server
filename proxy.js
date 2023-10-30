@@ -10,8 +10,8 @@ const serverServer = dgram.createSocket('udp4');
 const clientAddress = '0.0.0.0'; // Listen on an address starting with "10.215"
 const clientPort = 37329; // Replace with your desired client port
 
-const serverAddress = '148.153.0.0'; // Use an address starting with "148.153"
-const serverPort = 10016; // Replace with your server's port
+// const serverAddress = '148.153.0.0'; // Use an address starting with "148.153"
+// const serverPort = 10016; // Replace with your server's port
 
 // Bind the client server to the specified address and port
 clientServer.bind(clientPort, clientAddress, () => {
@@ -19,9 +19,9 @@ clientServer.bind(clientPort, clientAddress, () => {
 });
 
 // Bind the server server to the specified address and port
-serverServer.bind(serverPort, serverAddress, () => {
-  console.log(`Server server listening on ${serverAddress}:${serverPort}`);
-});
+// serverServer.bind(serverPort, serverAddress, () => {
+//   console.log(`Server server listening on ${serverAddress}:${serverPort}`);
+// });
 
 // Handle incoming datagrams from the client
 clientServer.on('message', (clientMessage, clientInfo) => {
@@ -32,9 +32,9 @@ clientServer.on('message', (clientMessage, clientInfo) => {
 });
 
 // Handle incoming datagrams from the server
-serverServer.on('message', (serverMessage, serverInfo) => {
-  // Forward the server's response to the client
-  clientServer.send(serverMessage, clientPort, clientAddress);
+// serverServer.on('message', (serverMessage, serverInfo) => {
+//   // Forward the server's response to the client
+//   clientServer.send(serverMessage, clientPort, clientAddress);
 
-  console.log(`Forwarded data from server to client: ${serverMessage.toString()}`);
-});
+//   console.log(`Forwarded data from server to client: ${serverMessage.toString()}`);
+// });
