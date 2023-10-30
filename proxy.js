@@ -24,12 +24,12 @@ clientServer.bind(clientPort, clientAddress, () => {
 // });
 
 // Handle incoming datagrams from the client
-clientServer.on('message', (clientMessage, clientInfo) => {
-  // Forward the client's datagram to the server
-  serverServer.send(clientMessage, serverPort, serverAddress);
+// clientServer.on('message', (clientMessage, clientInfo) => {
+//   // Forward the client's datagram to the server
+//   serverServer.send(clientMessage, serverPort, serverAddress);
 
-  console.log(`Forwarded data from client to server: ${clientMessage.toString()}`);
-});
+//   console.log(`Forwarded data from client to server: ${clientMessage.toString()}`);
+// });
 
 // Handle incoming datagrams from the server
 // serverServer.on('message', (serverMessage, serverInfo) => {
