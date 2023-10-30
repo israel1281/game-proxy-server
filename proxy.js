@@ -7,11 +7,11 @@ const clientServer = dgram.createSocket('udp4');
 const serverServer = dgram.createSocket('udp4');
 
 // Define the client and server addresses and ports
-const clientAddress = '0.0.0.0'; // Listen on all available network interfaces
-const clientPort = 12345; // Replace with your desired client port
+const clientAddress = '10.215.173.1'; // Listen on all available network interfaces
+const clientPort = 52170; // Replace with your desired client port
 
-const serverAddress = 'remote-server.com'; // Replace with your server's address
-const serverPort = 54321; // Replace with your server's port
+const serverAddress = '148.153.112.183'; // Replace with your server's address
+const serverPort = 10017; // Replace with your server's port
 
 // Bind the client server to the specified address and port
 clientServer.bind(clientPort, clientAddress, () => {
