@@ -6,32 +6,20 @@ const clientServer = dgram.createSocket('udp4');
 // Create a UDP server to listen for server datagrams
 const serverServer = dgram.createSocket('udp4');
 
-// Define the client and server addresses
+// Define the client and server addresses and ports
 const clientAddress = '10.215.0.0'; // Listen on an address starting with "10.215"
+const clientPort = 12345; // Replace with your desired client port
+
 const serverAddress = '148.153.0.0'; // Use an address starting with "148.153"
+const serverPort = 54321; // Replace with your server's port
 
-// Define port ranges
-const clientPortRange = [10000, 80000];
-const serverPortRange = [10010, 10015];
-
-// Function to find an available port within the given range
-function findAvailablePort(server, address, portRange, callback) {
-  for (let port = portRange[0]; port <= portRange[1]; port++) {
-    server.bind(port, address, (err) => {
-      if (!err) {
-        callback(port);
-      }
-    });
-  }
-}
-
-// Find an available client port
-findAvailablePort(clientServer, clientAddress, clientPortRange, (clientPort) => {
+// Bind the client server to the specified address and port
+clientServer.bind(clientPort, clientAddress, () => {
   console.log(`Client server listening on ${clientAddress}:${clientPort}`);
 });
 
-// Find an available server port
-findAvailablePort(serverServer, serverAddress, serverPortRange, (serverPort) => {
+// Bind the server server to the specified address and port
+serverServer.bind(serverPort, serverAddress, () => {
   console.log(`Server server listening on ${serverAddress}:${serverPort}`);
 });
 
